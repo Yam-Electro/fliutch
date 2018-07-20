@@ -53,7 +53,7 @@ try {
     		'text' => "List of commands :\n /email -> Get email address of the owner \n /latest -> Get latest posts of the blog 
     		/help -> Shows list of available commands"
     		]);
-     */
+    
     }
     else if($update->message->text == '/latest')
     {
@@ -70,6 +70,7 @@ try {
 					'chat_id' => $update->message->chat->id,
 					'text' => $message
 				]);
+   
 
     }
     else
@@ -80,6 +81,7 @@ try {
     		'text' => "Invalid command, please use /help to get list of available commands"
     		]);
     }
+    */ 
 
 } catch (\Zelenin\Telegram\Bot\NotOkException $e) {
 
