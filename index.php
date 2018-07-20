@@ -48,7 +48,7 @@ try {
         
     }
     
-    else if($update->message->text == "Как говорит собачка?")
+    else if($update->message->text == "Как говорит собачка?" or "как говорит собачка?" or "как говорит собачка")
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
@@ -57,12 +57,12 @@ try {
                                          ]);
     }
     
-    else if($update->message->text == "Как говорит Серега?")
+    else if($update->message->text == "Как говорит Серега?" or "как говорит Серега?" or "как говорит Серега" or "как говорит серега")
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
                                          'chat_id' => $update->message->chat->id,
-                                         'text' => "Да заебали уже, я в доту!"
+                                         'text' => "Отъебитесь уже от Сереги, он работает."
                                          ]);
         
     }
