@@ -60,7 +60,20 @@ try {
                                          'chat_id' => $update->message->chat->id,
                                          'text' => "Да я того родственник, братан пошли за полторашкой!"
                                          ]);
+        
     }
+    
+    else if($update->message->text == "бля")
+    {
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => "Не материся в храме божьем, ато крестом переебу!"
+                                         ]);
+        
+    }
+    
+    
     
     /*
     else if($update->message->text == '/help')
