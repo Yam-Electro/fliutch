@@ -35,7 +35,7 @@ try {
      	]);
     }
     
-    else if($update->message->text == '/kakgovoritkoshechka')
+    else if($update->message->text == "Как говорит кошечка?")
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
@@ -44,7 +44,7 @@ try {
                                          ]);
     }
     
-    else if($update->message->text == '/kakgovoritsobachka')
+    else if($update->message->text == "Как говорит собачка?")
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
@@ -53,12 +53,12 @@ try {
                                          ]);
     }
     
-    else if($update->message->text == '/kakgovorit-Serega')
+    else if($update->message->text == "Как говорит Серега?")
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
                                          'chat_id' => $update->message->chat->id,
-                                         'text' => "Да я того родственник, братан пошли за полторашкой!"
+                                         'text' => "Да заебали уже, я в доту!"
                                          ]);
         
     }
