@@ -35,7 +35,7 @@ try {
      	]);
     }
     
-    else if($update->message->text == '/какговориткошечка')
+    else if($update->message->text == '/kakgovoritkoshechka')
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
