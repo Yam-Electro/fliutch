@@ -79,8 +79,7 @@ try {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
                                          'chat_id' => $update->message->chat->id,
-                                         'text' => "Тут тебе никто не поможет, дружище."
-                                         'text' => "Ну а если серьезно: /email,  Как говорит кошечка?, Как говорит собачка?, Как говорит Серега?, бля. Пока все."
+                                         'text' => "Тут тебе никто не поможет, дружище... Ну а если серьезно: /email,  Как говорит кошечка?, Как говорит собачка?, Как говорит Серега?, бля. Пока все."
                                          ]);
         
     }
