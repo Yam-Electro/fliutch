@@ -42,6 +42,10 @@ try {
                                          'chat_id' => $update->message->chat->id,
                                          'text' => "Мяу-Мяу"
                                          ]);
+
+        
+        
+        
     }
     
     else if($update->message->text == "Как говорит собачка?")
@@ -72,7 +76,15 @@ try {
                                          ]);
         
     }
-    
+    else if($update->message->text == '/help')
+    {
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => "Тут тебе никто не поможет, дружище."
+                                         ]);
+        
+    }
     
     
     /*
