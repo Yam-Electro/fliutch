@@ -44,6 +44,24 @@ try {
                                          ]);
     }
     
+    else if($update->message->text == '/kakgovoritsobachka')
+    {
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => "Гав-Гав"
+                                         ]);
+    }
+    
+    else if($update->message->text == '/kakgovorit-Serega')
+    {
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => "Да я того родственник, братан пошли за полторашкой!"
+                                         ]);
+    }
+    
     /*
     else if($update->message->text == '/help')
     {
@@ -81,7 +99,7 @@ try {
     		'text' => "Invalid command, please use /help to get list of available commands"
     		]);
     }
-    */ 
+    */
 
 } catch (\Zelenin\Telegram\Bot\NotOkException $e) {
 
