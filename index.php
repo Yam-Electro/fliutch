@@ -72,8 +72,15 @@ try {
         $response = $client->sendMessage([
                                          'chat_id' => $update->message->chat->id,
                                          'text' => "вываждльмДЖКЛМУТЖЩШИТЖУКЩШИрждмлтыжуди",
+                                  
+                                         ]);
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                    
                                          'text' => "Кажись Эл упал лицом на клавиатуру"
                                          ]);
+
+        
         
     }
     
