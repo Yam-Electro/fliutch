@@ -96,10 +96,10 @@ try {
         
     }
     
-    /*
-    else if($update->message->text  "%111%" )
+  
+    else if($update->message->text (strpos(text, '111') !== false))
     {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+      echo  $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $chat_id = ['chat_id'];
         $response = $client->sendMessage([
                                          'chat_id' => $update->message->chat->id,
@@ -109,7 +109,7 @@ try {
     }
 
     
-    */
+    
     /*
     else if($update->message->text == '/help')
     {
