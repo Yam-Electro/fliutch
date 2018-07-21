@@ -22,6 +22,11 @@ require 'vendor/autoload.php';
 $client = new Zelenin\Telegram\Bot\Api('520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA'); // Set your access token
 $url = ''; // URL RSS feed
 $update = json_decode(file_get_contents('php://input'));
+    
+//Получение чат айди
+    $result = $client -> getWebhookUpdates();
+    $text = $result["message"]["text"];
+    $chat_id = $result["message"]["chat"]["id"];
 
 //your app
 try {
@@ -87,7 +92,7 @@ try {
     else if($update->message->text == "Где мы?")
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $chat_id = $result["message"]["chat"]["id"];
+
         $response = $client->sendMessage([
                                          'chat_id' => $update->message->chat->id,
                                          'text' => "$chat_id"
