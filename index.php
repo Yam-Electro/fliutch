@@ -96,6 +96,18 @@ try {
         
     }
     
+    else if($update->message->text in "%111%" )
+    {
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $chat_id = ['chat_id'];
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => "222"
+                                         ]);
+        
+    }
+
+    
     else if($update->message->text == '/weather')
     {
         Feed::$cacheDir 	= __DIR__ . '/cache';
