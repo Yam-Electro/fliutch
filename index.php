@@ -89,7 +89,18 @@ try {
         
     }
     
-
+    $a = $update->message->text;
+    if(strpos( $a , '111' ) !== false)
+    {
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $chat_id = ['chat_id'];
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => "222"
+                                         ]);
+   // } else { echo "0";
+    
+    }
     
     
     /*
