@@ -61,10 +61,25 @@ try {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
                                          'chat_id' => $update->message->chat->id,
-                                         'text' => "Отъебитесь уже от Сереги, он работает."
+                                         'text' => "Отъебитесь уже от Сереги! Он работает/бухает/играет. (Нужное подчеркнуть)"
                                          ]);
         
     }
+    
+    else if($update->message->text == "Как говорит Элвис?")
+    {
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => "вываждльмДЖКЛМУТЖЩШИТЖУКЩШИрждмлтыжуди",
+                                         'text' => "Кажись Эл упал лицом на клавиатуру"
+                                         ]);
+        
+    }
+    
+    
+    
+    
     
     else if($update->message->text == "бля")
     {
@@ -75,6 +90,8 @@ try {
                                          ]);
         
     }
+    
+    
     else if($update->message->text == '/help')
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
