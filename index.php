@@ -87,9 +87,10 @@ try {
     else if($update->message->text == "Где мы?")
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $chat_id = $result["message"]["chat"]["id"];
         $response = $client->sendMessage([
                                          'chat_id' => $update->message->chat->id,
-                                         'text' => 'chat_id'
+                                         'text' => $chat_id
                                          ]);
         
     }
