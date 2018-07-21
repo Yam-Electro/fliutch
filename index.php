@@ -24,8 +24,7 @@ $url = ''; // URL RSS feed
 $update = json_decode(file_get_contents('php://input'));
     
 //Получение чат айди
-    //$result = $client -> getWebhookUpdates();
-    //$text = $result["message"]["text"];
+
     $chat_id = $result["message"]["chat"]["id"];
 
 //your app
@@ -92,7 +91,7 @@ try {
     else if($update->message->text == "Где мы?" or $update->message->text == '/id')
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-
+        $chat_id = ['chat_id'];
         $response = $client->sendMessage([
                                          'chat_id' => $update->message->chat->id,
                                          'text' => "$chat_id"
