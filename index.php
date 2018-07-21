@@ -79,11 +79,17 @@ try {
                                     
                                          'text' => "Кажись Эл упал лицом на клавиатуру"
                                          ]);
-
-        
         
     }
     
+    else if($update->message->text == "Как говорит ям?")
+    {
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => "Серег! Хули сидим, пошли за Майкопским!"
+                                         ]);
+    }
     
     
     
