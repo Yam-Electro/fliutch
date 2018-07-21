@@ -96,7 +96,8 @@ try {
         
     }
     
-    else if($update->message->text in "%111%" )
+    /*
+    else if($update->message->text  "%111%" )
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $chat_id = ['chat_id'];
@@ -108,7 +109,7 @@ try {
     }
 
     
-    
+    */
     /*
     else if($update->message->text == '/help')
     {
