@@ -24,8 +24,8 @@ $url = ''; // URL RSS feed
 $update = json_decode(file_get_contents('php://input'));
     
 //Получение чат айди
-    $result = $client -> getWebhookUpdates();
-    $text = $result["message"]["text"];
+    //$result = $client -> getWebhookUpdates();
+    //$text = $result["message"]["text"];
     $chat_id = $result["message"]["chat"]["id"];
 
 //your app
