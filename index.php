@@ -96,8 +96,10 @@ try {
         
     }
     
-  
-    else if($update->message->text (strpos(text, '111') !== false))
+    $haystack = $update->message->text;
+    $needle   = "111";
+    
+    else if( strpos( $haystack, $needle ) !== false )
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $chat_id = ['chat_id'];
@@ -105,9 +107,21 @@ try {
                                          'chat_id' => $update->message->chat->id,
                                          'text' => "222"
                                          ]);
-    } else { echo "0";
+   // } else { echo "0";
     
     }
+    
+    
+    /*
+     $haystack = "foo bar baz";
+     $needle   = "bar";
+     
+     if( strpos( $haystack, $needle ) !== false ) {
+     echo "\"bar\" exists in the haystack variable";
+     }
+     */
+    
+    
 
     
     
