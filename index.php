@@ -90,7 +90,7 @@ try {
         $chat_id = $result["message"]["chat"]["id"];
         $response = $client->sendMessage([
                                          'chat_id' => $update->message->chat->id,
-                                         'text' => $chat_id
+                                         'text' => "$chat_id"
                                          ]);
         
     }
