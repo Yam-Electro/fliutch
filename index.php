@@ -84,6 +84,16 @@ try {
         
     }
     
+    else if($update->message->text == '/id')
+    {
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => "Мы в машине.... chat_id'"
+                                         ]);
+        
+    }
+    
     
     /*
     else if($update->message->text == '/help')
