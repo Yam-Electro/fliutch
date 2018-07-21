@@ -85,25 +85,8 @@ try {
         
     }
     
-
-        
-    }
     
 
-    
-    
-    /*
-     $haystack = "foo bar baz";
-     $needle   = "bar";
-     
-     if( strpos( $haystack, $needle ) !== false ) {
-     echo "\"bar\" exists in the haystack variable";
-     }
-     */
-    
-    
-
-    
     
     /*
     else if($update->message->text == '/help')
