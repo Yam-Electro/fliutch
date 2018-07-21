@@ -20,12 +20,9 @@
 require 'vendor/autoload.php';
 
 $client = new Zelenin\Telegram\Bot\Api('520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA'); // Set your access token
-$url = ''; // URL RSS feed
+$url = 'http://rp5.ru/rss/4429/ru'; // URL RSS feed
 $update = json_decode(file_get_contents('php://input'));
     
-//Получение чат айди
-
-    $chat_id = $result["message"]["chat"]["id"];
 
 //your app
 try {
@@ -94,8 +91,27 @@ try {
         $chat_id = ['chat_id'];
         $response = $client->sendMessage([
                                          'chat_id' => $update->message->chat->id,
-                                         'text' => $chat_id
+                                         'text' => "$chat_id"
                                          ]);
+        
+    }
+    
+    else if($update->message->text == '/weather')
+    {
+        Feed::$cacheDir 	= __DIR__ . '/cache';
+        Feed::$cacheExpire 	= '5 hours';
+        $rss 		= Feed::loadRss($url);
+        $items 		= $rss->item;
+        $lastitem 	= $items[0];
+        $lastlink 	= $lastitem->link;
+        $lasttitle 	= $lastitem->title;
+        $message = $lasttitle . " \n ". $lastlink;
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => $message
+                                         ]);
+        
         
     }
     
