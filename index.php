@@ -114,7 +114,16 @@ try {
                                          ]);
         
     }
-    
+
+    else if($update->message->text == "как говорит бот?")
+    {
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => "Вы только посмотрите на этого гения, как будто итак не понятно как бот говорит, он вообще не говорит а пишет, харе деградировать, одноклеточное!"
+                                         ]);
+        
+    }
     
 
     
