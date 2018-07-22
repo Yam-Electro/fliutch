@@ -135,6 +135,16 @@ try {
         
     }
     
+    else if($update->message->text == "как говорит Ырхог?")
+    {
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => "Хуй знает, я это животное давно не видел."
+                                         ]);
+        
+    }
+    
 
     
     /*
