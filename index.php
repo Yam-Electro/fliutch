@@ -125,6 +125,16 @@ try {
         
     }
     
+    else if($update->message->text == "как говорит Валек?")
+    {
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => "Здравствуйте, я сегодня поработал а потом еще поработал, сейчас поработаю, посплю а потом опять пойду на работу."
+                                         ]);
+        
+    }
+    
 
     
     /*
