@@ -176,8 +176,10 @@ try {
     		'text' => "List of commands :\n /email -> Get email address of the owner \n /latest -> Get latest posts of the blog 
     		/help -> Shows list of available commands"
     		]);
-    /*
+   
     }
+    
+     /*
     else if($update->message->text == '/latest')
     {
     		Feed::$cacheDir 	= __DIR__ . '/cache';
