@@ -155,6 +155,16 @@ try {
         
     }
     
+    else if($update->message->text == '/weather')
+    {
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => "В деревне Гадюкино опять дожди."
+                                         ]);
+        
+    }
+    
 
     
     /*
