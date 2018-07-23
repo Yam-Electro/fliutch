@@ -104,7 +104,7 @@ try {
         
     }
     
-    
+   /*
     else if($update->message->text == '/help')
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
@@ -114,6 +114,7 @@ try {
                                          ]);
         
     }
+    */
 
     else if($update->message->text == "как говорит бот?")
     {
