@@ -145,6 +145,16 @@ try {
         
     }
     
+    else if($update->message->text like "%писька%")
+    {
+        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        $response = $client->sendMessage([
+                                         'chat_id' => $update->message->chat->id,
+                                         'text' => "аяяшеньки яяй, кто у нас тут ругается?"
+                                         ]);
+        
+    }
+    
 
     
     /*
