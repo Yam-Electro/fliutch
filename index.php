@@ -180,7 +180,7 @@ try {
    
     }
     
-     /*
+    
     else if($update->message->text == '/latest')
     {
     		Feed::$cacheDir 	= __DIR__ . '/cache';
@@ -199,6 +199,7 @@ try {
    
 
     }
+    /*
     else
     {
     	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
