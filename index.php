@@ -145,7 +145,7 @@ try {
         
     }
     
-    else if($update->message->text in "писька")
+    else if($update->message->text == "писька")
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
