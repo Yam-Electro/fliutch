@@ -104,7 +104,7 @@ try {
         
     }
     
-   /*
+
     else if($update->message->text == '/help')
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
@@ -114,7 +114,7 @@ try {
                                          ]);
         
     }
-    */
+
 
     else if($update->message->text == "как говорит бот?")
     {
@@ -169,12 +169,12 @@ try {
 
     
     
-    else if($update->message->text == '/help')
+    else if($update->message->location)
     {
     	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
     	$response = $client->sendMessage([
     		'chat_id' => $update->message->chat->id,
-    		'text' => "List of commands :\n /email -> Get email address of the owner \n /latest -> Get latest posts of the blog 
+    		'text' => "В деревне Гадюкино опять дожди."
     		/help -> Shows list of available commands"
     		]);
    
