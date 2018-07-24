@@ -18,11 +18,13 @@
 *
 */
 require 'vendor/autoload.php';
+    include 'weather.php'
 
 $client = new Zelenin\Telegram\Bot\Api('520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA'); // Set your access token
-$url = 'http://rp5.ru/rss/4429/ru'; // URL RSS feed
+//$url = 'http://rp5.ru/rss/4429/ru'; // URL RSS feed
 $update = json_decode(file_get_contents('php://input'));
     
+$weatherApi = new Weather();
 
 //your app
 try {
@@ -158,6 +160,9 @@ try {
     
     else if($update->message->text == '/weather')
     {
+        
+        $result = $weatherApi->getWeather($update->message->location->latitude, $update->message->location->longtitude);
+        
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
                                          'chat_id' => $update->message->chat->id,
@@ -175,7 +180,7 @@ try {
     	$response = $client->sendMessage([
     		'chat_id' => $update->message->chat->id,
     		'text' => "В деревне Гадюкино опять дожди."
-    		/help -> Shows list of available commands"
+                                        
     		]);
    
     }
