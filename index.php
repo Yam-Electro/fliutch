@@ -161,7 +161,7 @@ try {
     else if($update->message->text == '/weather')
     {
         
-        $result = $weatherApi->getWeather($update->message->location->latitude, $update->message->location->longtitude);
+        $response = $weatherApi->getWeather($update->message->location->latitude, $update->message->location->longtitude);
         
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
