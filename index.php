@@ -6,12 +6,10 @@ include ('vendor/autoload.php');
 
 // Set your access token
 $client = new Zelenin\Telegram\Bot\Api('520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA');
-
-    //$url = 'http://rp5.ru/rss/4429/ru'; // URL RSS feed
     
 $update = json_decode(file_get_contents('php://input'));
     
-$weatherApi = new Weather();
+//$weatherApi = new Weather();
 
 //your app
 try {
