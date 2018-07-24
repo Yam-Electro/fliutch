@@ -1,22 +1,5 @@
 <?php
-
-/*
-* This file is part of GeeksWeb Bot (GWB).
-*
-* GeeksWeb Bot (GWB) is free software; you can redistribute it and/or modify
-* it under the terms of the GNU General Public License version 3
-* as published by the Free Software Foundation.
-* 
-* GeeksWeb Bot (GWB) is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.  <http://www.gnu.org/licenses/>
-*
-* Author(s):
-*
-* © 2015 Kasra Madadipouya <kasra@madadipouya.com>
-*
-*/
+    
 require 'vendor/autoload.php';
 //require 'Commands/weather.php';
 
@@ -38,142 +21,6 @@ try {
      	]);
     }
     
-    else if($update->message->text == "Как говорит кошечка?")
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-                                         'chat_id' => $update->message->chat->id,
-                                         'text' => "Мяу-Мяу"
-                                         ]);
-
-        
-    }
-    
-    else if($update->message->text == "Как говорит собачка?")
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-                                         'chat_id' => $update->message->chat->id,
-                                         'text' => "Гав-Гав"
-                                         ]);
-    }
-    
-    else if($update->message->text == "Как говорит Серега?")
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-                                         'chat_id' => $update->message->chat->id,
-                                         'text' => "Отъебитесь уже от Сереги! Он работает/бухает/играет. (Нужное подчеркнуть)"
-                                         ]);
-        
-    }
-    
-    else if($update->message->text == "Как говорит Элвис?")
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-                                         'chat_id' => $update->message->chat->id,
-                                         'text' => "вываждльмДЖКЛМУТЖЩШИТЖУКЩШИрждмлтыжуди",
-                                  
-                                         ]);
-        $response = $client->sendMessage([
-                                         'chat_id' => $update->message->chat->id,
-                                    
-                                         'text' => "Кажись Эл упал лицом на клавиатуру"
-                                         ]);
-        
-    }
-    
-    else if($update->message->text == "Как говорит ям?")
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-                                         'chat_id' => $update->message->chat->id,
-                                         'text' => "Серег! Хули сидим, пошли за Майкопским!"
-                                         ]);
-    }
-    
-    
-    
-    
-    else if($update->message->text == "бля")
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-                                         'chat_id' => $update->message->chat->id,
-                                         'text' => "Не материся в храме божьем, ато крестом переебу!"
-                                         ]);
-        
-    }
-    
-
-    else if($update->message->text == '/help')
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-                                         'chat_id' => $update->message->chat->id,
-                                         'text' => "Тут тебе никто не поможет, дружище... Ну а если серьезно: /email,  Как говорит кошечка?, Как говорит собачка?, Как говорит Серега?, бля. Пока все."
-                                         ]);
-        
-    }
-
-
-    else if($update->message->text == "как говорит бот?")
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-                                         'chat_id' => $update->message->chat->id,
-                                         'text' => "Вы только посмотрите на этого гения, как будто итак не понятно как бот говорит, он вообще не говорит а пишет, харе деградировать, одноклеточное!"
-                                         ]);
-        
-    }
-    
-    else if($update->message->text == "как говорит Валек?")
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-                                         'chat_id' => $update->message->chat->id,
-                                         'text' => "Здравствуйте, я сегодня поработал а потом еще поработал, сейчас поработаю, посплю а потом опять пойду на работу."
-                                         ]);
-        
-    }
-    
-    else if($update->message->text == "как говорит Ырхог?")
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-                                         'chat_id' => $update->message->chat->id,
-                                         'text' => "Хуй знает, я это животное давно не видел."
-                                         ]);
-        
-    }
-    
-    else if($update->message->text == "писька")
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-                                         'chat_id' => $update->message->chat->id,
-                                         'text' => "аяяшеньки яяй, кто у нас тут ругается?"
-                                         ]);
-        
-    }
-    
-    else if($update->message->text == '/weather')
-    {
-        
-        $response = $weatherApi->getWeather($update->message->location->latitude, $update->message->location->longtitude);
-        
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-                                         'chat_id' => $update->message->chat->id,
-                                         'text' => "В деревне Гадюкино опять дожди."
-                                         ]);
-        
-    }
-    
-
-    
-    
     else if($update->message->location)
     {
     	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
@@ -188,10 +35,6 @@ try {
    
     }
     
-    
-
-
-
 } catch (\Zelenin\Telegram\Bot\NotOkException $e) {
 
     //echo error message ot log it
