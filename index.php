@@ -18,7 +18,7 @@
 *
 */
 require 'vendor/autoload.php';
-include 'Commands/weather.php';
+require 'Commands/weather.php';
 
 $client = new Zelenin\Telegram\Bot\Api('520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA'); // Set your access token
 //$url = 'http://rp5.ru/rss/4429/ru'; // URL RSS feed
