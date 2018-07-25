@@ -59,7 +59,7 @@ while (true) {
             ]);
         }
     }
-catch (\Zelenin\Telegram\Bot\NotOkException $e)
+
 }
 
 
