@@ -2,6 +2,7 @@
 
 require 'vendor/autoload.php';
 include 'Weather.php';
+include 'TelegramBot.php.php';
 
 // Set your access token
 $client = new Zelenin\Telegram\Bot\Api('520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA');
