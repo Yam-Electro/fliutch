@@ -45,8 +45,8 @@ while (true) {
 
             //ответ на каждое сообщение
 
-            $telegtamApi->sendMessage->($update->chat->id, $response);
-            
+            //$telegtamApi->sendMessage->($update->chat->id, $response);
+
 
         } else {
             //ответ на каждое сообщение
