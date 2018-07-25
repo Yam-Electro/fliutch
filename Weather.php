@@ -21,9 +21,9 @@ class Weather
             'base_uri' => $url
             
             ]);
-            $result = $client->request('GET');
+            $response = $client->request('GET');
             
-            return json_decode($result->getBody());
+            return json_decode($response->getBody());
             
         }
         

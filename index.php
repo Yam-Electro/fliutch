@@ -22,13 +22,14 @@ try {
         ]);
     }
 
-    if (isset($update->message->location)) {
+    if (isset($update->message->location))
+    {
 
         //получаем погоду
-        $result = $weatherApi->getWeather($update->message->location->latitude, $update->message->location->longitude);
+        $response = $weatherApi->getWeather($update->message->location->latitude, $update->message->location->longitude);
 
 
-        switch ($result->weather[0]->main) {
+        switch ($response->weather[0]->main) {
             case "Clear"  :
                 $response = "Хоббиты по ошибке забрались в Краснодар и пытаются утопить кольцо в растаявшем асфальте";
                 break;
