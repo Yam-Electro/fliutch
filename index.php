@@ -22,7 +22,7 @@ try {
         ]);
     }
 
-    if (isset($update->message->location)){
+    if (isset($update->message->location)) {
 
         //получаем погоду
         $result = $weatherApi->getWeather($update->message->location->latitude, $update->message->location->longitude);
@@ -45,15 +45,16 @@ try {
                 $response = "Толи лыжи не едут толи я долбоеб";
 
         }
+    }
 
 
 
     } catch (\Zelenin\Telegram\Bot\NotOkException $e) {
 
-    //echo error message ot log it
-    //echo $e->getMessage();
+        //echo error message ot log it
+        //echo $e->getMessage();
 
-}
+    }
 
 
 
