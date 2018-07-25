@@ -1,7 +1,7 @@
 <?php
 
 
-//use vendor\GuzzleHttp\guzzle\src\Client;
+use vendor\GuzzleHttp\guzzle\src\Client;
 
 
 class TelegramBot
