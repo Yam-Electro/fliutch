@@ -8,6 +8,8 @@ include ('TelegramBot.php');
 //Тупое получение сообщений
 $telegtamApi = new TelegramBot();
 $weatherApi = new Weather();
+$client = new Zelenin\Telegram\Bot\Api('520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA');
+$update = json_decode(file_get_contents('php://input'));
 
 while (true) {
     sleep(2);
@@ -48,12 +50,16 @@ while (true) {
             //$telegtamApi->sendMessage->($update->chat->id, $response);
 
 
-        } else {
-            //ответ на каждое сообщение
-            $telegtamApi->sendMessage->($update->chat->id, "Отправь локацию");
-
+        } else
+        {
+            $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+            $response = $client->sendMessage([
+                'chat_id' => $update->message->chat->id,
+                'text' => "test"
+            ]);
         }
     }
+catch (\Zelenin\Telegram\Bot\NotOkException $e)
 }
 
 
