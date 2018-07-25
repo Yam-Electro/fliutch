@@ -11,6 +11,7 @@ $weatherApi = new Weather();
 
 while (true) {
     sleep(2);
+
     $updates = $telegtamApi->getUpdates();
 
 
@@ -43,8 +44,9 @@ while (true) {
             }
 
             //ответ на каждое сообщение
-            $telegtamApi->sendMessage->($update->chat->id, $response);
 
+            $telegtamApi->sendMessage->($update->chat->id, $response);
+            
 
         } else {
             //ответ на каждое сообщение
