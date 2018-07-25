@@ -9,7 +9,7 @@ class TelegramBot
         protected $token = "520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA";
         protected function query($method, $params = [])
         {
-            $url = "ttps://api.telegram.bot;";
+            $url = "https://api.telegram.bot;";
             $url .= $this->$token;
             url .= "/" . $method;
 

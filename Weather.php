@@ -1,7 +1,7 @@
 <?php
 
 require 'vendor/autoload.php';
-$client = new Zelenin\Telegram\Bot\Api('520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA');
+
     
 class Weather
     {
@@ -24,8 +24,9 @@ class Weather
             
             ]);
         */
-            $response = $url->request('GET');
-            
+            $client = new Zelenin\Telegram\Bot\Api('520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA');
+            $response = $client->request('GET');
+            //$response = $client->sendMessage "111";
             return json_decode($response->getBody());
             
         }
