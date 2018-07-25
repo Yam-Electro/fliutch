@@ -1,8 +1,6 @@
 <?php
 
-use vendor\GuzzleHttp\guzzle\src\Client;
-
-include ('vendor/autoload.php');
+require 'vendor/autoload.php';
 include ('weather.php');
 include ('TelegramBot.php');
 
