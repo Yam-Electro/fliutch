@@ -1,6 +1,7 @@
 <?php
 
 require 'vendor/autoload.php';
+$client = new Zelenin\Telegram\Bot\Api('520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA');
     
 class Weather
     {
@@ -16,11 +17,13 @@ class Weather
         $params['appid'] = $this->token;
         
         $url .= "?" . http_build_query($params);
-            
+
+        /*
         $client =  new Client([
             'base_uri' => $url
             
             ]);
+        */
             $response = $client->request('GET');
             
             return json_decode($response->getBody());
