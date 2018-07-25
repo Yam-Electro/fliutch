@@ -1,9 +1,89 @@
 <?php
     
-//require 'vendor/autoload.php';
-include ('vendor/autoload.php');
-//include ('weather.php');
 
+include ('vendor/autoload.php');
+include ('weather.php');
+include ('TelegramBot.php');
+
+//Тупое получение сообщений
+$telegtamApi = new TelegramBot();
+$weatherApi = new Weather();
+
+while (true) {
+    sleep(2);
+    $updates = $telegtamApi->getUpdates();
+
+
+
+    //пробежка по сообщениям
+    foreach ($updates as $update) {
+
+        if (isset($update->message->location)){
+
+            //получаем погоду
+            $result = $weatherApi->getWeather($update->message->location->latitude, $update->message->location->longitude);
+
+
+            switch ($result->weather[0]->main) {
+                case "Clear"  :
+                    $response = "Хоббиты по ошибке забрались в Краснодар и пытаются утопить кольцо в растаявшем асфальте";
+                    break;
+
+                case "Rain" :
+                    $response = "Какой-то ебанутый дед катается на лодке под окном и собирает каждой твари по паре";
+                    break;
+
+                case "Clouds" :
+                    $response = "Ну наконец то на улице облачно, Серега го за Майкопским!";
+                    break;
+
+                 default :
+                    $response = "Толи лыжи не едут толи я долбоеб";
+
+            }
+
+            //ответ на каждое сообщение
+            $telegtamApi->sendMessage->($update->chat->id, $response);
+
+
+        } else {
+            //ответ на каждое сообщение
+            $telegtamApi->sendMessage->($update->chat->id, "Отправь локацию");
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 // Set your access token
 $client = new Zelenin\Telegram\Bot\Api('520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA');
     
@@ -43,3 +123,5 @@ try {
     //echo $e->getMessage();
 
 }
+
+*/
