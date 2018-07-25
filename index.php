@@ -1,13 +1,14 @@
 <?php
 
 require 'vendor/autoload.php';
+include 'Weather.php';
 
 // Set your access token
 $client = new Zelenin\Telegram\Bot\Api('520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA');
 
 $update = json_decode(file_get_contents('php://input'));
 
-//$weatherApi = new Weather();
+$weatherApi = new Weather();
 
 //your app
 try {
@@ -21,24 +22,33 @@ try {
         ]);
     }
 
-    /*
+    if (isset($update->message->location)){
 
-     /else if($update->message->location)
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+        //получаем погоду
+        $result = $weatherApi->getWeather($update->message->location->latitude, $update->message->location->longitude);
 
-        $response = $weatherApi->getWeather($update->message->location->latitude, $update->message->location->longtitude);
 
-        $response = $client->sendMessage([
-            'chat_id' => $update->message->chat->id,
-            'text' => "В деревне Гадюкино опять дожди."
+        switch ($result->weather[0]->main) {
+            case "Clear"  :
+                $response = "Хоббиты по ошибке забрались в Краснодар и пытаются утопить кольцо в растаявшем асфальте";
+                break;
 
-        ]);
+            case "Rain" :
+                $response = "Какой-то ебанутый дед катается на лодке под окном и собирает каждой твари по паре";
+                break;
 
-    }
-    */
+            case "Clouds" :
+                $response = "Ну наконец то на улице облачно, Серега го за Майкопским!";
+                break;
 
-} catch (\Zelenin\Telegram\Bot\NotOkException $e) {
+            default :
+                $response = "Толи лыжи не едут толи я долбоеб";
+
+        }
+
+
+
+    } catch (\Zelenin\Telegram\Bot\NotOkException $e) {
 
     //echo error message ot log it
     //echo $e->getMessage();
