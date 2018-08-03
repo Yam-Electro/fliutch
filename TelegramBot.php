@@ -1,47 +1,60 @@
 <?php
-	
-	use GuzzleHttp\Client;
-	
-	class TelegramBot {
-	protected $token = "520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA";
-	protected $updateId;
-	protected function query($method, $params = []){
-		
-		$url = "https://api.telegram.org/bot";
-		$url .= $this->token;
-		$url .= "/" . $method;
+/**
+ * Created by PhpStorm.
+ * User: skeleton
+ * Date: 30.09.17
+ * Time: 0:10
+ */
 
-		if(!empty($params)){
-			$url .= "?" . http_build_query($params);
-		}
+use GuzzleHttp\Client;
 
-		$client = new Client([
-			'baseUrl' => $url
-		]);
+class TelegramBot
+{
+    protected $token = "520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA";
 
-		$resault = $client->request('GET');
+    protected $updatedId;
 
-		return json_decode($resault->getBody());
-	}
+    public function query($method, $params = [])
+    {
+        $url = "https://api.telegram.org/bot";
 
-	public function getUpdates(){
-		$response = $this->query('getUpdates', [
-			'offset' => $this->updateId + 1
-		]);
+        $url .= $this->token;
 
-		if (!empty($response->resault)) {
-			$this->updateId = $response->resault[count($response->resault) - 1]->update_id;
-		}
+        $url .= "/" . $method;
 
-		return $response->resault;
-	}
+        if(!empty($params)) {
+            $url .= "?" . http_build_query($params);
+        }
 
-	public function sendMessage($chat_id, $text){
-		$response = $this->query('sendMessage', [
-			'text' => $text,
-			'chat_id' => $chat_id
-		]);
+        $client = new Client([
+            'base_uri' => $url
+        ]);
 
-		return $response;
-	}
+        $result = $client->request('GET');
+
+        return json_decode($result->getBody());
+    }
+
+    public function getUpdates()
+    {
+        $response = $this->query('getUpdates', [
+            'offset' => $this->updatedId + 1
+        ]);
+
+        if (!empty($response->result)) {
+            $this->updatedId = $response->result[count($response->result) - 1]->update_id;
+        }
+
+        return  $response->result;
+    }
+
+    public function sendMessage($chat_id, $text)
+    {
+        $response = $this->query('sendMessage', [
+            'text' => $text,
+            'chat_id' => $chat_id
+        ]);
+
+        return $response;
+    }
 }

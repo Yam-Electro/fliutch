@@ -1,29 +1,33 @@
-<?php 
+<?php
+/**
+ * Created by PhpStorm.
+ * User: skeleton
+ * Date: 30.09.17
+ * Time: 0:58
+ */
+use GuzzleHttp\Client;
 
 class Weather
 {
-	protected $token = "bff84a22162e74f2e553e56e6db7862c";
-	
-	public function getWeather(){
-		
-		$url = "api.openweathermap.org/data/2.5/forecast?id=";
+    protected $token = "520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA";
 
-		$params = [];
-		$params['lat'] = $lat;
-		$params['lon'] = $lon;
-		$params['APPID'] = $this->token;
+    public function getWeather($lat, $lon)
+    {
+        $url = "api.openweathermap.org/data/2.5/weather";
 
-		$url .= "?" . http_build_query($params);
+        $params = [];
+        $params['lat'] = $lat;
+        $params['lon'] = $lon;
+        $params['APPID'] = $this->token;
 
-		$client = new Client([
-			'baseUrl' => $url
-		]);
+        $url .= "?" . http_build_query($params);
 
-		$result = $client->request('GET');
+        $client = new Client([
+            'base_uri' => $url
+        ]);
 
-		return json_decode($result->getBody());
-	}
+        $result = $client->request('GET');
+
+        return json_decode($result->getBody());
+    }
 }
-
-
-//http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=bff84a22162e74f2e553e56e6db7862c
