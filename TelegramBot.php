@@ -3,7 +3,7 @@
 	use GuzzleHttp\Client;
 	
 	class TelegramBot {
-	protected $token = "506875017:AAEy2KMNWtz6MENYjsLNS21Xqh2Yn_CXBgs";
+	protected $token = "520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA";
 	protected $updateId;
 	protected function query($method, $params = []){
 		

@@ -2,7 +2,7 @@
 
 class Weather
 {
-	protected $token = "a6e078118e7c0774913dcbdf826201bf";
+	protected $token = "bff84a22162e74f2e553e56e6db7862c";
 	
 	public function getWeather(){
 		
