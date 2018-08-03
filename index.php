@@ -19,7 +19,7 @@ try {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
             'chat_id' => $update->message->chat->id,
-            'text' => "Можете писать этому типу (а можете не писать): optixkiller@gmail.com"
+            'text' => "Можете писать этому типу (а можете не писать): 11 optixkiller@gmail.com"
         ]);
     }
 
