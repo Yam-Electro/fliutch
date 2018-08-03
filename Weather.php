@@ -9,7 +9,9 @@ class Weather
         public function getWeather($lat, $lon)
 
         {
-        $url = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=bff84a22162e74f2e553e56e6db7862c";
+
+            //$url = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=bff84a22162e74f2e553e56e6db7862c";
+            $url = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=bff84a22162e74f2e553e56e6db7862c";
             //$url = "http://api.openweathermap.org/data/2.5/forecast";
         $params = [];
         $params['lat'] = $lat;
