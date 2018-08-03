@@ -23,7 +23,7 @@ try {
         ]);
     }
 
-    if (isset($update->message->location))
+    if ($update->message->location)
     {
 
         //получаем погоду
