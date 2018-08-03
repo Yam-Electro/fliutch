@@ -6,7 +6,7 @@ class Weather
 	
 	public function getWeather(){
 		
-		$url = "api.openweathermap.org/data/2.5/weather";
+		$url = "api.openweathermap.org/data/2.5/forecast?id=";
 
 		$params = [];
 		$params['lat'] = $lat;
@@ -24,3 +24,6 @@ class Weather
 		return json_decode($result->getBody());
 	}
 }
+
+
+//http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=bff84a22162e74f2e553e56e6db7862c
