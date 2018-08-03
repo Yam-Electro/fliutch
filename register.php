@@ -2,7 +2,7 @@
 
 // fondamentali
 $WEBHOOK_URL = 'https://fliutch.herokuapp.com/execute.php';
-$BOT_TOKEN = '520672444:AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA';
+$BOT_TOKEN = 'AAF2z3IJXUPUJ7si1Bdw6N8D2Ejcjq-B7lA';
 
 $API_URL = 'https://api.telegram.org/bot' . $BOT_TOKEN .'/';
 $method = 'setWebhook';
