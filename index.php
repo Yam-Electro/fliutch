@@ -179,24 +179,27 @@ $rawXML = str_replace(']]>', "", $rawXML);
            // $item = str_replace('<![CDATA[', '', $item);
             //$item = str_replace(']]>', '', $item);
 
+     srand ((double) microtime() * 1000000);
+    $random_number = rand(0,count($quotes)-1);
+ echo ($quotes[$random_number]);
+
+
      */
 
     else if($update->message->text == '/bash@Yamertbot')
     {   $html=simplexml_load_file('https://bash.im/rss/');
         $pp = "\n";
         $counter = 0;
+        srand ((double) microtime() * 1000000);
+        $randomcounter = rand(0,count($randomcounter)-1);
         foreach ($html->channel->item as $item)
         {
             $counter++;
-            if($counter > 1)
+            if($counter = $randomcounter)
             {
+                $reply .= $item->description.$pp.$pp;
                 break;
             }
-            //убираем лишнее из текста
-            //$item = str_replace('<br>', "", $item);
-            //$item = str_replace('&quot', "", $item);
-
-            $reply .= $item->description.$pp.$pp;
 
         }
         $reply = str_replace('<br>', "", $reply);
@@ -267,11 +270,11 @@ $rawXML = str_replace(']]>', "", $rawXML);
         foreach ($html->channel->item as $item)
         {
             $counter++;
-            if($counter > 5)
+            if($counter > 3)
             {
                 break;
             }
-            $reply .= $item->title.$pp.$item->link.$pp.$pp;
+            $reply .= $item->title.$pp.$item->link.$pp.$item->description.$pp.$pp;
         }
 
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
