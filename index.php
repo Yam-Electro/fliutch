@@ -189,7 +189,7 @@ $rawXML = str_replace(']]>', "", $rawXML);
     else if($update->message->text == '/bash@Yamertbot')
     {   $html=simplexml_load_file('https://bash.im/rss/');
         $pp = "\n";
-        $counter = 0;
+        $counter = rand(1, 99);
         srand ((double) microtime() * 1000000);
         //$randomcounter = rand(0,count($html->channel->item)-1);
         foreach ($html->channel->item as $item)
