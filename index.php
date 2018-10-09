@@ -71,10 +71,14 @@ try {
 
     else if($update->message->text == 'мыш')
     {
+        $url = "https://vk.com/photo21506599_456239218";
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
             'chat_id' => $update->message->chat->id,
-            'text' => "кродеться"
+            'text' => "кродеться"]);
+        $response = $client->sendMessage([
+            'chat_id' => $update->message->chat->id,
+            'photo' => $url
         ]);
     }
 
@@ -107,17 +111,7 @@ try {
             $telegram->sendPhoto([ 'chat_id' => $chat_id, 'photo' => $url, 'caption' => "Описание." ]);
      *
      */
-
-
-    else if($update->message->text == 'мыш')
-    {   $url = "https://vk.com/photo21506599_456239218";
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendPhoto([
-
-            'chat_id' => $update->message->chat->id,
-            'photo' => $url
-        ]);
-    }
+    
 
 
     else if($update->message->text == '/popyachsa@Yamertbot')
