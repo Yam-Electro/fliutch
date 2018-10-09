@@ -71,7 +71,7 @@ try {
 
     else if($update->message->text == 'мыш')
     {
-        $url = "https://vk.com/photo21506599_456239218";
+        $url = "https://memepedia.ru/wp-content/uploads/2018/08/mi0-768x490.jpg";
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
             'chat_id' => $update->message->chat->id,
@@ -95,10 +95,15 @@ try {
 
     else if($update->message->text == 'Серега')
     {
+        $url = "https://vk.com/photo21506599_456239218";
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
             'chat_id' => $update->message->chat->id,
             'text' => "серёга (от лат. yobaniy v rot, eto cho, nature ty? sergunya, seriy, serhio, serginio, serious serik, sergofan, serovodorod, serg, sergey) — сколько лет, сколько зим, как жизнь?"
+        ]);
+        $response = $client->sendPhoto([
+            'chat_id' => $update->message->chat->id,
+            'photo' => $url
         ]);
     }
 
