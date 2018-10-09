@@ -76,7 +76,7 @@ try {
         $response = $client->sendMessage([
             'chat_id' => $update->message->chat->id,
             'text' => "кродеться"]);
-        $response = $client->sendMessage([
+        $response = $client->sendPhoto([
             'chat_id' => $update->message->chat->id,
             'photo' => $url
         ]);
@@ -111,7 +111,7 @@ try {
             $telegram->sendPhoto([ 'chat_id' => $chat_id, 'photo' => $url, 'caption' => "Описание." ]);
      *
      */
-    
+
 
 
     else if($update->message->text == '/popyachsa@Yamertbot')
