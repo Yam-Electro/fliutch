@@ -202,8 +202,8 @@ $rawXML = str_replace(']]>', "", $rawXML);
             }
 
         }
-        $reply = str_replace('<br>', "", $reply);
-        $reply = str_replace('&quot', "", $reply);
+        $reply = str_replace('<br>', " ", $reply);
+        $reply = str_replace('&quot', " ", $reply);
 
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
