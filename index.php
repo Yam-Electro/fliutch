@@ -191,9 +191,10 @@ $rawXML = str_replace(']]>', "", $rawXML);
         $pp = "\n";
         $counter = 0;
         srand ((double) microtime() * 1000000);
-        $randomcounter = rand(0,count($randomcounter)-1);
+        //$randomcounter = rand(0,count($html->channel->item)-1);
         foreach ($html->channel->item as $item)
         {
+            $randomcounter = rand(0,count($html->channel->item)-1);
             $counter++;
             if($counter = $randomcounter)
             {
