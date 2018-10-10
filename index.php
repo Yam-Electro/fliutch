@@ -190,7 +190,7 @@ $rawXML = str_replace(']]>', "", $rawXML);
     {   $html=simplexml_load_file('https://bash.im/rss/');
         $pp = "\n";
         $counter = 0;
-        $randomcounter = 10; //rand(0,count($html->channel->item)-1);
+        $randomcounter = rand(0,count($html->channel->item)-1);
         foreach ($html->channel->item as $item)
         {
             $counter++;
