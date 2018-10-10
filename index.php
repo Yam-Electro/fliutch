@@ -32,7 +32,7 @@ try {
         ]);
     }
 
-    else if($update->message->text == 'вейперы')
+    else if(preg_match("/вейперы/i", $update->message->text))
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
@@ -41,7 +41,7 @@ try {
         ]);
     }
 
-    else if($update->message->text == 'вейп')
+    else if(preg_match("/вейп/i", $update->message->text))
     {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
@@ -51,23 +51,6 @@ try {
     }
 
 
-    else if($update->message->text == 'намотка')
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-            'chat_id' => $update->message->chat->id,
-            'text' => "Иди суда, я тебе кантал на *** намотаю!"
-        ]);
-    }
-
-    else if($update->message->text == 'Эрхог')
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-            'chat_id' => $update->message->chat->id,
-            'text' => "Это твой друг вейпер?"
-        ]);
-    }
 
     //else if($update->message->text == 'мыш')
     else if(preg_match("/мыш/i", $update->message->text))
@@ -86,15 +69,6 @@ try {
 
 
 
-    else if($update->message->text == 'да')
-    {
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-            'chat_id' => $update->message->chat->id,
-            'text' => "джигурда!"
-        ]);
-    }
-
     //Серега
     else if(($update->message->text == 'Серега') || ($update->message->text == 'cерега') || ($update->message->text == 'Сергей') || ($update->message->text == 'боб')  )
     {
@@ -111,18 +85,7 @@ try {
     }
 
 
-
-
-    /*
-     *        }elseif ($text == "Картинка") {
-            $url = "https://68.media.tumblr.com/6d830b4f2c455f9cb6cd4ebe5011d2b8/tumblr_oj49kevkUz1v4bb1no1_500.jpg";
-            $telegram->sendPhoto([ 'chat_id' => $chat_id, 'photo' => $url, 'caption' => "Описание." ]);
-     *
-     */
-
-
-
-    else if($update->message->text == '/popyachsa@Yamertbot')
+    else if(preg_match("/упячка/i", $update->message->text))
     {   $url = "https://upyachka.io/img/up4kman.gif";
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendDocument([
@@ -132,25 +95,7 @@ try {
         ]);
     }
 
-
-
-
-    else if($update->message->text == '/statya@Yamertbot')
-    {   $html=simplexml_load_file('http://netology.ru/blog/rss.xml');
-        foreach ($html->channel->item as $item)
-        {
-            $reply .= "\xE2\x9E\xA1 ".$item->title." (<a href='".$item->link."'>читать</a>)\n";
-        }
-
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-
-            'chat_id' => $update->message->chat->id, 'parse_mode' => 'HTML', 'disable_web_page_preview' => true, 'text' => $reply
-        ]);
-    }
-
-
-
+    //Самый навороченный парсер
     else if( ($update->message->text == '/bash@Yamertbot') || ($update->message->text == '/bash') || ($update->message->text == 'баш') )
     {   $html=simplexml_load_file('https://bash.im/rss/');
         $pp = "\n";
@@ -231,33 +176,6 @@ try {
             'chat_id' => $update->message->chat->id, 'parse_mode' => 'HTML', 'disable_web_page_preview' => true, 'text' => $reply
         ]);
     }
-
-
-
-
-
-
-    //http://omskregion.info/rss.xml
-    else if($update->message->text == '/omsk@Yamertbot')
-    {   $html=simplexml_load_file('http://omskregion.info/rss.xml');
-        $pp = "\n";
-        $count = 0;
-        foreach ($html->channel->item as $item)
-        {
-            $reply .= $item->title.$pp.$item->description.$pp.$pp;
-            $counter++;
-            if($counter > 5)
-            {
-                break;
-            }
-
-        }
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-            'chat_id' => $update->message->chat->id, 'parse_mode' => 'HTML', 'disable_web_page_preview' => true, 'text' => $reply
-        ]);
-    }
-
 
     
 } catch (\Zelenin\Telegram\Bot\NotOkException $e) {
