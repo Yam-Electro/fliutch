@@ -53,7 +53,7 @@ try {
 
 
     //else if($update->message->text == 'мыш')
-    else if(preg_match("/мыш/i", $update->message->text))
+    else if((preg_match("/мыш/i", $update->message->text)) || (preg_match("/Мыш/i", $update->message->text)) || (preg_match("/Мышь/i", $update->message->text)) || (preg_match("/мышь/i", $update->message->text)))
 
     {
         $url = "https://memepedia.ru/wp-content/uploads/2018/08/mi0-768x490.jpg";
