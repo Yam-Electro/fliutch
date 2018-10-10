@@ -190,16 +190,16 @@ $rawXML = str_replace(']]>', "", $rawXML);
     {   $html=simplexml_load_file('https://bash.im/rss/');
         $pp = "\n";
         $counter = 0;
+        $randomcounter = rand(2, 30);
 
         //$randomcounter = rand(0,count($html->channel->item)-1);
         foreach ($html->channel->item as $item)
         {
-            srand ((double) microtime() * 1000000);
-            $randomcounter = rand(1, 30);
+            
             $counter++;
             if($counter = $randomcounter)
             {
-                $reply .= $item->description.$pp.$pp;
+                $reply .= $item->description;
                 break;
             }
 
