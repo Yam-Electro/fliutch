@@ -194,7 +194,7 @@ $rawXML = str_replace(']]>', "", $rawXML);
         foreach ($html->channel->item as $item)
         {
             $counter++;
-            if($counter = $randomcounter)
+            if($counter == $randomcounter)
             {
                 $reply .= $item->description;
                 break;
