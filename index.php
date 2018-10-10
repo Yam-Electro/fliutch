@@ -143,9 +143,15 @@ try {
     else if(($update->message->text == '/news@Yamertbot') || ($update->message->text == 'новости'))
     {   $html=simplexml_load_file('http://bloknot-krasnodar.ru/rss_news.php');
         $pp = "\n";
+        $count = 0;
         foreach ($html->channel->item as $item)
         {
-            $reply .= $item->title.$pp.$item->description.$pp.$item->link.$pp.$pp;
+            $counter++;
+            if($counter > 2)
+            {
+                break;
+            }
+            $reply .= $item->title.$pp.$item->description.$pp.$pp;
         }
 
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
