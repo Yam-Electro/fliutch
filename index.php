@@ -186,7 +186,7 @@ $rawXML = str_replace(']]>', "", $rawXML);
 
      */
 
-    else if($update->message->text == '/bash@Yamertbot')
+    else if( ($update->message->text == '/bash@Yamertbot') || ($update->message->text == '/bash') || ($update->message->text == 'баш') )
     {   $html=simplexml_load_file('https://bash.im/rss/');
         $pp = "\n";
         $counter = 0;
