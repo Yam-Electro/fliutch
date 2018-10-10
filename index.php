@@ -93,7 +93,8 @@ try {
         ]);
     }
 
-    else if($update->message->text == 'Серега')
+    //Серега
+    else if(($update->message->text == 'Серега') || ($update->message->text == 'cерега') || ($update->message->text == 'Сергей') || ($update->message->text == 'боб')  )
     {
         $url = "https://vk.com/photo21506599_456239218";
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
@@ -129,17 +130,8 @@ try {
         ]);
     }
 
-    /*
-     * elseif ($text == "Последние статьи") {
-            $html=simplexml_load_file('http://netology.ru/blog/rss.xml');
-            foreach ($html->channel->item as $item) {
-	     $reply .= "\xE2\x9E\xA1 ".$item->title." (<a href='".$item->link."'>читать</a>)\n";
-        	}
 
 
-            $telegram->sendMessage([ 'chat_id' => $chat_id, 'parse_mode' => 'HTML', 'disable_web_page_preview' => true, 'text' => $reply ]);
-        }
-     */
 
     else if($update->message->text == '/statya@Yamertbot')
     {   $html=simplexml_load_file('http://netology.ru/blog/rss.xml');
@@ -155,36 +147,7 @@ try {
         ]);
     }
 
-    /*
-     * $rss =  simplexml_load_file('http://bash.org.ru/rss/');
-        $item = $rss->channel->item;
-        for ($ib=0;$ib<101;$ib++) {
-        $bash_utf=$item[$ib]->description;
-        echo $bash_utf;};
 
-
-        <?php
-        $xml = simplexml_load_file('http://bash.org.ru/rss/');
-        foreach ($xml->xpath('//item') as $item)
-        {
-        echo "<b><a href="$item->guid">$item->title
-        <br/></a></b>$item->description<hr/>";
-        }
-        ?>
-
-    $rawXML = str_replace('<![CDATA[<?xml version="1.0" encoding="UTF-8" ?>', "", $rawXML);
-$rawXML = str_replace(']]>', "", $rawXML);
-
-              //убираем лишнее из текста
-           // $item = str_replace('<![CDATA[', '', $item);
-            //$item = str_replace(']]>', '', $item);
-
-     srand ((double) microtime() * 1000000);
-    $random_number = rand(0,count($quotes)-1);
- echo ($quotes[$random_number]);
-
-
-     */
 
     else if( ($update->message->text == '/bash@Yamertbot') || ($update->message->text == '/bash') || ($update->message->text == 'баш') )
     {   $html=simplexml_load_file('https://bash.im/rss/');
@@ -213,23 +176,6 @@ $rawXML = str_replace(']]>', "", $rawXML);
     }
 
 
-    /*
-        else if($update->message->text == '/bash@Yamertbot')
-        {   $html=simplexml_load_file('https://bash.im/rss/');
-            //$item = $html->channel->item;
-            $pp = "\n";
-            foreach ($html->channel->item as $item)//->description foreach ($html->channel->item->description as $item)
-            {
-                $reply .= $item->title.$pp; //.$item->description.$pp.$pp; //$reply .= $item->title; //>title;
-            }
-
-            $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-            $response = $client->sendMessage([
-
-                'chat_id' => $update->message->chat->id, 'parse_mode' => 'HTML', 'disable_web_page_preview' => true, 'text' => $reply
-            ]);
-        }
-    */
 
     else if($update->message->text == '/weather@Yamertbot')
     {   $html=simplexml_load_file('http://informer.gismeteo.ru/rss/34929.xml');
@@ -284,45 +230,8 @@ $rawXML = str_replace(']]>', "", $rawXML);
         ]);
     }
 
-    /*
-    //pravovlavie
-    else if($update->message->text == '/omg@Yamertbot')
-    {   $html=simplexml_load_file('http://www.pravoslavie.ru/xml/prav_answers_rss.xml');
-        $pp = "\n";
-        foreach ($html->channel->item as $item)
-        {
-            $reply .= $item->title.$pp.$item->description.$pp.$item->link.$pp.$pp;
-        }
-
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-
-            'chat_id' => $update->message->chat->id, 'parse_mode' => 'HTML', 'disable_web_page_preview' => true, 'text' => $reply
-        ]);
-    }
-    */
 
 
-    //pravovlavie
-
-    else if($update->message->text == '/omg@Yamertbot')
-    {   $html=simplexml_load_file('http://www.pravoslavie.ru/xml/prav_answers_rss.xml');
-        $pp = "\n";
-        $count = 0;
-        foreach ($html->channel->item as $item)
-        {
-            $counter++;
-            if($counter > 2)
-            {
-                break;
-            }
-            $reply .= $item->title.$pp.$item->description.$pp.$item->link.$pp.$pp;
-        }
-        $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-        $response = $client->sendMessage([
-            'chat_id' => $update->message->chat->id, 'parse_mode' => 'HTML', 'disable_web_page_preview' => true, 'text' => $reply
-        ]);
-    }
 
 
 
@@ -346,32 +255,6 @@ $rawXML = str_replace(']]>', "", $rawXML);
             'chat_id' => $update->message->chat->id, 'parse_mode' => 'HTML', 'disable_web_page_preview' => true, 'text' => $reply
         ]);
     }
-
-
-
-
-
-    /*
-
-        else if($update->message->text == 'test')
-
-            $keyboard = new  Zelenin\Telegram\Bot\Type\Inline\InlineKeyboardMarkup(   //\TelegramBot\Api\Types\Inline\InlineKeyboardMarkup(
-                [
-                    [
-                        ['callback_data' => 'data_test', 'text' => 'Answer'],
-                        ['callback_data' => 'data_test2', 'text' => 'ОтветЪ']
-                    ]
-                ]
-            );
-
-        {
-            $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-            $response = $client->sendMessage([
-                'chat_id' => $update->message->chat->id,
-                'text' => "\xF0\x9F\x98\x81"
-            ]);
-        }
-    */
 
 
     
