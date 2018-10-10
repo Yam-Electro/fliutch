@@ -192,10 +192,10 @@ $rawXML = str_replace(']]>', "", $rawXML);
         $counter = 0;
         //$randomcounter = rand(2, 30);
 
-        //$randomcounter = rand(0,count($html->channel->item)-1);
+        $randomcounter = rand(0,count($html->channel->item)-1);
         foreach ($html->channel->item as $item)
         {
-            $randomcounter = rand(2, 30);
+            //$randomcounter = rand(2, 30);
             $counter++;
             if($counter = $randomcounter)
             {
