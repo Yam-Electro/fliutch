@@ -163,11 +163,11 @@ try {
         foreach ($html->channel->item as $item)
         {
             $counter++;
-            if($counter > 3)
+            if($counter > 2)
             {
                 break;
             }
-            $reply .= $item->title.$pp.$item->link.$pp.$item->description.$pp.$pp;
+            $reply .= $item->title.$pp.$item->description.$pp.$pp;
         }
 
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
