@@ -140,7 +140,7 @@ try {
     }
 
     //news
-    else if($update->message->text == '/news@Yamertbot')
+    else if(($update->message->text == '/news@Yamertbot') || ($update->message->text == 'новости'))
     {   $html=simplexml_load_file('http://bloknot-krasnodar.ru/rss_news.php');
         $pp = "\n";
         foreach ($html->channel->item as $item)
