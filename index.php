@@ -173,7 +173,7 @@ try {
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
         $response = $client->sendMessage([
 
-            'chat_id' => $update->message->chat->id, 'parse_mode' => 'HTML', 'disable_web_page_preview' => true, 'text' => $reply
+            'chat_id' => $update->message->chat->id, 'parse_mode' => 'Markdown', 'disable_web_page_preview' => true, 'text' => $reply
         ]);
     }
 
