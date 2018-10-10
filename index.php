@@ -69,7 +69,9 @@ try {
         ]);
     }
 
-    else if($update->message->text == 'мыш')
+    //else if($update->message->text == 'мыш')
+    else if(preg_match("/мыш/i", $update->message->text))
+
     {
         $url = "https://memepedia.ru/wp-content/uploads/2018/08/mi0-768x490.jpg";
         $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
