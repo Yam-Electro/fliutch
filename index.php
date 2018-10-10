@@ -156,7 +156,7 @@ try {
     }
 
     //kino
-    else if($update->message->text == '/cinema@Yamertbot')
+    else if(($update->message->text == '/cinema@Yamertbot') || ($update->message->text == 'кино') )
     {   $html=simplexml_load_file('https://st.kp.yandex.net/rss/news_premiers.rss');
         $pp = "\n";
         $count = 0;
